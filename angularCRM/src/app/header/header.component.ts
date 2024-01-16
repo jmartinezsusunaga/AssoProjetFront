@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild  } from '@angular/core';
 import { ListeUtilisateursComponent } from '../utilisateur/liste-utilisateurs/liste-utilisateurs.component';
 import { ListeEvenementsComponent } from '../evenement/liste-evenements/liste-evenements.component';
 import { ToolbarModule } from 'primeng/toolbar';
-import {TabViewModule} from 'primeng/tabview';
+import {TabViewModule,TabPanel,TabView} from 'primeng/tabview';
 
 @Component({
   selector: 'crm-header',
@@ -13,4 +13,19 @@ import {TabViewModule} from 'primeng/tabview';
 })
 export class HeaderComponent {
 
+  index: number = 0;
+@ViewChild('onglets') tabView : TabViewModule;
+
+  constructor( tabView: TabViewModule) { 
+    this.tabView = tabView;
+  }
+
+  tabViewChange(event : any,tabView: TabViewModule) {
+    this.index = event.index;
+    
+
+   }
+
+  
+   
 }

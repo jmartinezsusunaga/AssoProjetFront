@@ -1,10 +1,12 @@
 <p-toolbar  class="bg-gray-900 shadow-2"> 
     
         <div class="p-toolbar-group-start items-toolbar">
-                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200"><i class="pi pi-home text-2xl"></i></button>
+                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                        <i class="pi pi-home text-2xl"></i>
+                </button>
         </div>
         <div class="flex flex-wrap align-items-center gap-3">
-                <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
+                <button class="p-link    ">
                         <i class="pi pi-search text-2xl"></i>
                 </button>
         </div>
@@ -13,11 +15,13 @@
         </div>
 </p-toolbar>
 
-<p-tabView>
-        <p-tabPanel header="Utilisateurs" headerStyleClass="p-tab-panel-jo">
+<p-tabView #tabView  (onChange)="tabViewChange($event, tabView)" styleClass="style-bar-tabs">
+        <p-tabPanel header="Utilisateurs" [headerStyleClass]="index == 0 ? 'p-tab-panel-jo' : 'p-tab-panel-jo-non-selected'"  leftIcon="pi pi-eject" [headerStyle]="{'color': 'white'}" [selected]="true">
                 <crm-liste-utilisateurs></crm-liste-utilisateurs>
         </p-tabPanel>
-        <p-tabPanel header="Évenements">
+        <p-tabPanel header="Évenements" [headerStyleClass]="index == 1 ? 'p-tab-panel-jo' : 'p-tab-panel-jo-non-selected'"   leftIcon="pi pi-users" [headerStyle] = "{'color': 'white'}">
                 <crm-liste-evenements></crm-liste-evenements>
         </p-tabPanel>
-    </p-tabView>
+
+</p-tabView>
+{{index}}
