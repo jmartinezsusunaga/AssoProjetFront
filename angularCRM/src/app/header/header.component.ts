@@ -3,11 +3,16 @@ import { ListeUtilisateursComponent } from '../utilisateur/liste-utilisateurs/li
 import { ListeEvenementsComponent } from '../evenement/liste-evenements/liste-evenements.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import {TabViewModule,TabPanel,TabView} from 'primeng/tabview';
+import { TableauxComponent } from '../tableaux/tableaux.component';
 
 @Component({
   selector: 'crm-header',
   standalone: true,
-  imports: [ListeUtilisateursComponent, ListeEvenementsComponent, ToolbarModule,TabViewModule],
+  imports: [ListeUtilisateursComponent, 
+            ListeEvenementsComponent, 
+            ToolbarModule,
+            TabViewModule,
+            TableauxComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
