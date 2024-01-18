@@ -1,17 +1,27 @@
-<p-button>ajouter +</p-button>
-<p-table [columns]="cols"  [value]="utilisateurs" [tableStyle]="{ 'min-width': '50rem' }">
+<p-button class="style-button-ajout" (click)="showModal($event, 'CREATION')">ajouter +</p-button>
+<p-table 
+[columns]="cols" 
+selectionMode="single" 
+[value]="utilisateurs" 
+[tableStyle]="{'border': '1px solid black', 'background-color': 'lavenderblush'} "
+(onRowSelect)="showModal($event,'MODIFICATION')">
     <ng-template pTemplate="header" let-columns>
         <tr>
-            <th *ngFor="let col of columns">
+            <th *ngFor="let col of columns" class="table-header-style">
                 {{ col.header }}
             </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
+        <tr [pSelectableRow]="columns">
             <td *ngFor="let col of columns">
                 {{ rowData[col.field] }}
             </td>
         </tr>
     </ng-template>
 </p-table>
+
+<p-dialog header="Title" [(visible)]="displayModal">
+    content
+
+</p-dialog>
