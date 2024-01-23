@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { HEROES } from './mock.liste.utilisateurs';
 import {NgFor} from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import {CommonModule} from '@angular/common';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { UtilisateurComponent } from '../utilisateur/utilisateur.component';
 
 
 @Component({
@@ -15,17 +18,23 @@ import {CommonModule} from '@angular/common';
     NgFor,
     ButtonModule,
     DialogModule,
+    CommonModule,
+    UtilisateurComponent,
     CommonModule
   ],
-    
+  animations:[],    
+  providers:[],
   templateUrl: './tableaux.component.html',
   styleUrl: './tableaux.component.scss'
 })
+
 export class TableauxComponent {
 
   cols!: Column[];
   utilisateurs = HEROES;
   displayModal: boolean= false;
+
+
 
   ngOnInit() {
    
@@ -39,7 +48,7 @@ export class TableauxComponent {
     ];
   }
 
-  showModal(event : any, formStatus : string){
+  showDialog(){
     this.displayModal = true;
     console.log("-------------------------------------- modal----------------------------");
     console.log(this.displayModal);
@@ -51,3 +60,13 @@ interface Column {
   field: string;
   header: string;
 }
+
+
+//TODO:
+/**
+ *     <crm-utilisateur></crm-utilisateur>
+    <ng-tamplate pTemplate="footer">
+        <p-button label="cancel"></p-button>
+        <p-button label="Ajouter  / modifier"></p-button>
+    </ng-tamplate> 
+*/
