@@ -1,20 +1,15 @@
 import { Routes } from '@angular/router';
 import { GestionUtilisateurComponent } from './utilisateur/gestion-utilisateur/gestion-utilisateur.component';
-import { ListeUtilisateursComponent } from './utilisateur/liste-utilisateurs/liste-utilisateurs.component';
 import { AppComponent } from './app.component';
+import { GestionEvenementComponent } from './evenement/gestion-evenement/gestion-evenement.component';
 
 export const APP_ROUTES: Routes = [
-    {path: '', component: AppComponent}
-    /*,
-    {path: 'home', component: AppComponent},
     {path: 'gestionUtilisateur', component: GestionUtilisateurComponent},
-    {path: 'listeUtilisateur', component: ListeUtilisateursComponent}*/
+    {path: 'gestionEvenements', component: GestionEvenementComponent}
 
 ];
 
-/*// In admin/routes.ts:
-export const ADMIN_ROUTES: Route[] = [
-  {path: 'home', component: AdminHomeComponent},
-  {path: 'users', component: AdminUsersComponent},
-  // ...
-]; */
+export const ADMIN_ROUTES: Routes = [
+  {path: 'tableauxDinformation', component: AppComponent},
+  {path: '', component: AppComponent}    
+]; 

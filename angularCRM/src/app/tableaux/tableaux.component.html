@@ -1,6 +1,6 @@
 <p-button 
     class="style-button-ajout" 
-    (click)="showDialog()" 
+    (click)="openNewTab($event,'CREATION','UTI')" 
     icon="pi pi-external-link"
     >ajouter
 </p-button>
@@ -9,7 +9,7 @@
     selectionMode="single" 
     [value]="utilisateurs" 
     [tableStyle]="{'border': '1px solid black', 'background-color': 'lavenderblush'} "
-    (onRowSelect)="showDialog()">
+    (onRowSelect)="openModal($event,'UTI')">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns" class="table-header-style">
@@ -26,6 +26,7 @@
     </ng-template>
 </p-table>
 
-<p-dialog header="Title" [(visible)]="displayModal" label="Show">
-
-</p-dialog>
+<crm-gestion-utilisateur
+[typeOfView]="typeOfView"
+></crm-gestion-utilisateur>
+<!-- TODO : ajouter une modal avec un bouton pour aller sur la modification des infos -->

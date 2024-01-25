@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'crm-gestion-utilisateur',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './gestion-utilisateur.component.scss'
 })
 export class GestionUtilisateurComponent {
+
+  @Input() typeOfView = '';
 
 }

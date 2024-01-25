@@ -1,13 +1,12 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { HEROES } from './mock.liste.utilisateurs';
 import {NgFor} from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
-import {CommonModule} from '@angular/common';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 import { UtilisateurComponent } from '../utilisateur/utilisateur.component';
+import { GestionUtilisateurComponent } from '../utilisateur/gestion-utilisateur/gestion-utilisateur.component';
+
 
 
 @Component({
@@ -18,9 +17,9 @@ import { UtilisateurComponent } from '../utilisateur/utilisateur.component';
     NgFor,
     ButtonModule,
     DialogModule,
-    CommonModule,
+    GestionUtilisateurComponent,
     UtilisateurComponent,
-    CommonModule
+    
   ],
   animations:[],    
   providers:[],
@@ -33,6 +32,7 @@ export class TableauxComponent {
   cols!: Column[];
   utilisateurs = HEROES;
   displayModal: boolean= false;
+  typeOfView:string = "";
 
 
 
@@ -48,10 +48,31 @@ export class TableauxComponent {
     ];
   }
 
-  showDialog(){
-    this.displayModal = true;
-    console.log("-------------------------------------- modal----------------------------");
-    console.log(this.displayModal);
+  openNewTab(event : any, typeOfView: string ,typeOfWindow: string){
+    this.typeOfView = typeOfView;
+    if(typeOfWindow == 'UTI'){
+
+      window.open('/gestionUtilisateur');
+    }if(typeOfWindow == 'EVENT'){
+      window.open('/gestionEvenements');
+    }
+    /**
+     * TODO :  
+     * stream de valeur qui vont aller sur les autres composants
+     * UTILISATEUR
+     * 1. Type de formulaire 
+     * 2. type de view
+     * 
+     * EVENEMENTS 
+     * 1. type de formulaire 
+     * 2. type de view
+     */
+  }
+
+  openModal(event : any,typeOfWindow: string){
+   /**
+    * TODO : 
+    * / afficher modal avec les info et un bouton pour modif */
   }
 
 }
@@ -69,4 +90,8 @@ interface Column {
         <p-button label="cancel"></p-button>
         <p-button label="Ajouter  / modifier"></p-button>
     </ng-tamplate> 
+
+    this.displayModal = true;
+    console.log("-------------------------------------- modal----------------------------");
+    console.log(this.displayModal);
 */
